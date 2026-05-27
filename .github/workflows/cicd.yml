@@ -1,4 +1,4 @@
-name: DevOps CI/CD Pipeline
+name: Full DevOps Pipeline
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-push:
+  build-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,17 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker Image
-      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app .
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:latest .
 
     - name: Push Docker Image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:latest
+
+    - name: Set kubeconfig
+      run: |
+        mkdir -p ~/.kube
+        echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f deployment.yaml
+        kubectl apply -f service.yaml

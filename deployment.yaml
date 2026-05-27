@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devops-app
+  name: rohan-app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: devops-app
+      app: rohan-app
   template:
     metadata:
       labels:
-        app: devops-app
+        app: rohan-app
     spec:
       containers:
-      - name: devops-container
-        image: rohangusinge/devops-app:latest   # 👈 yaha tera docker image ayega
+      - name: rohan-container
+        image: rohangusinge1712/rohan-devops-app:latest
         ports:
         - containerPort: 80
