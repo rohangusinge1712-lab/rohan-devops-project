@@ -33,3 +33,14 @@ http://localhost:8081
 
 ## 👨‍💻 Author
 Rohan Gusinge 
+
+## 🚀 Auto Deployment Trigger
+
+This update is to test the automated CI/CD pipeline integration.
+
+✔ GitHub Actions builds Docker image  
+✔ Image pushed to DockerHub  
+✔ Webhook triggers deployment  
+✔ Application deployed on Kubernetes  
+
+🔥 End-to-end DevOps pipeline working successfully!
