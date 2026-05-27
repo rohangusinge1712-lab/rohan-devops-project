@@ -44,3 +44,4 @@ This update is to test the automated CI/CD pipeline integration.
 ✔ Application deployed on Kubernetes  
 
 🔥 End-to-end DevOps pipeline working successfully!
+Test auto deploy
