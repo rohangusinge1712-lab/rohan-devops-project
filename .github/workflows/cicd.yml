@@ -23,6 +23,6 @@ jobs:
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:latest .
 
     - name: Push Docker Image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:${{ github.sha }}
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:latest . 
 
    
