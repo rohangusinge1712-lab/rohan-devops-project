@@ -20,9 +20,11 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker Image
-      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:latest
+      run: |
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:${{ github.sha }} .
+        docker tag ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:latest
 
     - name: Push Docker Image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:latest
-
-   
+      run: |
+        docker push ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:${{ github.sha }}
+        docker push ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:latest
