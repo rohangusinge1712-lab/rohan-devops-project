@@ -1,9 +1,14 @@
 #!/bin/bash
+set -x
 
-echo "Pulling latest image..."
-docker pull rohangusinge1712/rohan-devops-app:latest
+echo "==============================" >> /home/ubuntu/deploy.log
+echo "DEPLOY TRIGGERED $(date)" >> /home/ubuntu/deploy.log
 
-echo "Updating Kubernetes deployment..."
-kubectl set image deployment/rohan-devops-app rohan-devops-app=rohangusinge1712/rohan-devops-app:latest
+echo "Pulling latest image..." >> /home/ubuntu/deploy.log
+docker pull rohangusinge1712/rohan-devops-app:latest >> /home/ubuntu/deploy.log 2>&1
 
-echo "Done"
+echo "Updating Kubernetes deployment..." >> /home/ubuntu/deploy.log
+kubectl set image deployment/rohan-devops-app rohan-devops-app=rohangusinge1712/rohan-devops-app:latest >> /home/ubuntu/deploy.log 2>&1
+
+echo "Done" >> /home/ubuntu/deploy.log
+echo "==============================" >> /home/ubuntu/deploy.log
