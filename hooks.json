@@ -1,0 +1,8 @@
+[
+  {
+    "id": "deploy-app",
+    "execute-command": "/home/ubuntu/rohan-devops-project/deploy.sh",
+    "command-working-directory": "/home/ubuntu/rohan-devops-project",
+    "response-message": "Deployment triggered successfully"
+  }
+]
