@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rohan-ingress
+spec:
+  rules:
+  - host: rohan.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: rohan-service   # 🔥 FIXED
+            port:
+              number: 80

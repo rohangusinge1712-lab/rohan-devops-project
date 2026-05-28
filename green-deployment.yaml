@@ -1,22 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rohan-app-blue
+  name: rohan-app-green
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: rohan-app-blue
+      app: rohan-app-green
   template:
     metadata:
       labels:
-        app: rohan-app-blue
+        app: rohan-app-green
     spec:
       containers:
       - name: rohan-container
         image: rohangusinge1712/rohan-devops-app:latest
         ports:
         - containerPort: 80
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "200m"
+            memory: "256Mi"
 
         livenessProbe:
           httpGet:
