@@ -45,3 +45,44 @@ This update is to test the automated CI/CD pipeline integration.
 
 🔥 End-to-end DevOps pipeline working successfully!
 Test auto deploy
+
+
+=================================================================================================================================
+
+
+# 🚀 DevOps CI/CD Automation Project
+
+## 📌 Overview
+This project demonstrates an end-to-end CI/CD pipeline where application deployment is fully automated using GitHub Webhooks, Docker, and Kubernetes.
+
+## ⚙️ Tech Stack
+- GitHub
+- Docker & DockerHub
+- Kubernetes
+- Webhook
+- ngrok
+
+## 🔄 Workflow
+Git Push → GitHub Webhook → ngrok → Webhook Server → deploy.sh → Docker Pull → Kubernetes Deployment Update
+
+## 🚀 Features
+- Automated deployment on every Git push
+- Docker image pulling from DockerHub
+- Kubernetes rolling update
+- Zero manual deployment
+
+## 🛠️ Setup Steps
+1. Push code to GitHub
+2. Docker image is built and pushed
+3. Kubernetes deployment is running
+4. Webhook server listens for GitHub events
+5. deploy.sh updates the deployment automatically
+
+## 📷 Demo
+(Add screenshots here: pods, logs, deployment)
+
+## 💡 Learning Outcome
+- Built real-world CI/CD pipeline
+- Hands-on Kubernetes deployment automation
+- Debugging real DevOps issues (webhooks, container names, etc.)
+
