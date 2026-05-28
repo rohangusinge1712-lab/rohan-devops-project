@@ -25,8 +25,13 @@ docker pull rohangusinge1712/rohan-devops-app:latest
 docker run -d -p 8081:80 rohangusinge1712/rohan-devops-app
 
 ## 🌐 Access App
+
+###Local
 http://localhost:8081
 
+###Public (Temporary)
+https://capitol-frays-salad.ngrok-free.dev/
+Note: Public URL changes after restart.
 ## 🔐 Secrets
 - DOCKER_USERNAME
 - DOCKER_PASSWORD
