@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,3 +28,7 @@ jobs:
       run: |
         docker push ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:${{ github.sha }}
         docker push ${{ secrets.DOCKER_USERNAME }}/rohan-devops-app:latest
+
+    - name: Trigger Webhook (Deploy)
+      run: |
+        curl -X POST https://capitol-frays-salad.ngrok-free.dev/hooks/deploy-app
